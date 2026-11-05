@@ -30,3 +30,15 @@ Open http://localhost:8080. Deploy these static files to GitHub Pages or Cloudfl
 The complete recording was transcribed with Whisper-1 in 37 chunks. The lesson contains 460 subtitle segments and 5,714 vocabulary units, with automated Chinese correction, English translation, and contextual tone-marked pinyin. Stable-ts / Whisper tiny performed forced alignment within ASR-derived sentence ranges. 97 zero-length forced word results use ASR timing as a fallback, identified by `timingStatus: "asr-fallback"`. Common names and idioms received an additional manual correction pass. The transcript remains an automated draft; no complete human linguistic or acoustic review is claimed.
 
 A second editorial pass with GPT-4.1 refined all 460 English subtitles for fluency and historical names. This does not constitute a complete human review.
+
+## Character meanings and ruby pinyin (0.2)
+
+Chinese captions and transcript words now use HTML ruby: small pinyin annotations directly above their Chinese bases. Word buttons retain their original aligned timing spans. If syllables cannot be mapped safely, pronunciation is attached to the whole word instead.
+
+Word explanations include the combined contextual meaning, individual character senses, and available notes explaining idioms/compounds. All 2,347 distinct multi-character groups in the bundled lesson have a breakdown in `characterBreakdowns`. Character senses are dictionary aids, not etymologies or guarantees about a compound’s historical construction. Sense/reading selection is automated and has not received complete human review.
+
+Character glosses are adapted from [CC-CEDICT](https://cc-cedict.org/wiki/), downloaded from MDBG under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Senses were abridged and learner glosses/composition notes added. The derived `characterBreakdowns` data and notes are shared under that license. Attribution is visible in word explanations. The recording remains on its original host.
+
+The desktop extension now supports playback controls on other Bilibili BV videos, with separately imported and locally saved lessons for each video and part. New videos need their own transcript, translations, pinyin and alignment; automatic new-video transcription is not implemented. The extension panel docks below the player and becomes an overlay inside browser fullscreen. Native video-only fullscreen/PiP cannot host the HTML panel.
+
+The website’s **Fullscreen study view** keeps the embedded player and lesson together in a fullscreen workspace. Bilibili’s iframe’s own fullscreen is separate and cannot display this website’s external captions. The cross-origin embed clock limitation remains unchanged.
