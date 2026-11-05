@@ -28,3 +28,5 @@ Open http://localhost:8080. Deploy these static files to GitHub Pages or Cloudfl
 ## Bundled lesson status
 
 The complete recording was transcribed with Whisper-1 in 37 chunks. The lesson contains 460 subtitle segments and 5,714 vocabulary units, with automated Chinese correction, English translation, and contextual tone-marked pinyin. Stable-ts / Whisper tiny performed forced alignment within ASR-derived sentence ranges. 97 zero-length forced word results use ASR timing as a fallback, identified by `timingStatus: "asr-fallback"`. Common names and idioms received an additional manual correction pass. The transcript remains an automated draft; no complete human linguistic or acoustic review is claimed.
+
+A second editorial pass with GPT-4.1 refined all 460 English subtitles for fluency and historical names. This does not constitute a complete human review.
