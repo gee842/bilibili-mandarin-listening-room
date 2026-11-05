@@ -1,0 +1,584 @@
+[
+  {
+    "minute": 0,
+    "zh": "骂",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 33.04
+  },
+  {
+    "minute": 0,
+    "zh": "今天",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 58.58
+  },
+  {
+    "minute": 2,
+    "zh": "他们",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 136.48
+  },
+  {
+    "minute": 3,
+    "zh": "秦国",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 239.98
+  },
+  {
+    "minute": 4,
+    "zh": "连",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 283.4
+  },
+  {
+    "minute": 4,
+    "zh": "站在",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 299.54
+  },
+  {
+    "minute": 4,
+    "zh": "自行车辆",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 299.94
+  },
+  {
+    "minute": 4,
+    "zh": "的",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 299.98
+  },
+  {
+    "minute": 4,
+    "zh": "后面",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 299.98
+  },
+  {
+    "minute": 5,
+    "zh": "去",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 359.94
+  },
+  {
+    "minute": 5,
+    "zh": "吧",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 359.98
+  },
+  {
+    "minute": 6,
+    "zh": "在",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 387.52
+  },
+  {
+    "minute": 7,
+    "zh": "他",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 438.24
+  },
+  {
+    "minute": 7,
+    "zh": "他",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 478.7
+  },
+  {
+    "minute": 7,
+    "zh": "去",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 478.92
+  },
+  {
+    "minute": 7,
+    "zh": "游说",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 479.2
+  },
+  {
+    "minute": 7,
+    "zh": "楚威王",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 479.44
+  },
+  {
+    "minute": 8,
+    "zh": "给",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 499.32
+  },
+  {
+    "minute": 9,
+    "zh": "像",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 554.76
+  },
+  {
+    "minute": 9,
+    "zh": "问",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 564.94
+  },
+  {
+    "minute": 9,
+    "zh": "时候",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 599.86
+  },
+  {
+    "minute": 12,
+    "zh": "的",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 747.88
+  },
+  {
+    "minute": 12,
+    "zh": "你",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 779.98
+  },
+  {
+    "minute": 12,
+    "zh": "了",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 779.98
+  },
+  {
+    "minute": 13,
+    "zh": "也好",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 839.98
+  },
+  {
+    "minute": 16,
+    "zh": "她",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1019.62
+  },
+  {
+    "minute": 16,
+    "zh": "不哭不哭",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1019.98
+  },
+  {
+    "minute": 17,
+    "zh": "有",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1030.64
+  },
+  {
+    "minute": 19,
+    "zh": "本事",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1199.7
+  },
+  {
+    "minute": 19,
+    "zh": "没有",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1199.98
+  },
+  {
+    "minute": 20,
+    "zh": "快马",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1258.32
+  },
+  {
+    "minute": 20,
+    "zh": "赶回",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1258.68
+  },
+  {
+    "minute": 20,
+    "zh": "齐国",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1259.08
+  },
+  {
+    "minute": 20,
+    "zh": "都城",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1259.4
+  },
+  {
+    "minute": 21,
+    "zh": "他",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1319.98
+  },
+  {
+    "minute": 21,
+    "zh": "一人",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1319.98
+  },
+  {
+    "minute": 23,
+    "zh": "还",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1380.86
+  },
+  {
+    "minute": 23,
+    "zh": "那么",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1409.36
+  },
+  {
+    "minute": 23,
+    "zh": "曝光",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1439.98
+  },
+  {
+    "minute": 24,
+    "zh": "是",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1442.72
+  },
+  {
+    "minute": 24,
+    "zh": "把",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1445.44
+  },
+  {
+    "minute": 24,
+    "zh": "也",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1479.6
+  },
+  {
+    "minute": 24,
+    "zh": "他",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1482.98
+  },
+  {
+    "minute": 24,
+    "zh": "你",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1488.9
+  },
+  {
+    "minute": 24,
+    "zh": "竹席",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1499.98
+  },
+  {
+    "minute": 24,
+    "zh": "上",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1499.98
+  },
+  {
+    "minute": 26,
+    "zh": "没出来",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1619.42
+  },
+  {
+    "minute": 27,
+    "zh": "的",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1679.98
+  },
+  {
+    "minute": 27,
+    "zh": "丞相",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1679.98
+  },
+  {
+    "minute": 28,
+    "zh": "呢",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1684.58
+  },
+  {
+    "minute": 29,
+    "zh": "这",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1744.38
+  },
+  {
+    "minute": 29,
+    "zh": "不认",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1799.98
+  },
+  {
+    "minute": 29,
+    "zh": "罪",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1799.98
+  },
+  {
+    "minute": 32,
+    "zh": "弹铗",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "在",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "街市",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "上",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "喝酒",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "唱歌",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "喝醉",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "了",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "就",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "相拥",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "而",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "哭",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "比",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "谁",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "都",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "清楚",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1949.98
+  },
+  {
+    "minute": 32,
+    "zh": "既然",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1978.5
+  },
+  {
+    "minute": 32,
+    "zh": "樊於期",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1978.88
+  },
+  {
+    "minute": 32,
+    "zh": "将军",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.2
+  },
+  {
+    "minute": 32,
+    "zh": "把",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.52
+  },
+  {
+    "minute": 32,
+    "zh": "脑袋",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.68
+  },
+  {
+    "minute": 32,
+    "zh": "都",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "给",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "他",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "了",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "那",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "他",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "也",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "得",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "把",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "脑袋",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "给",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "我",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 32,
+    "zh": "了",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 1979.98
+  },
+  {
+    "minute": 33,
+    "zh": "不再",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 2039.98
+  },
+  {
+    "minute": 33,
+    "zh": "是",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 2039.98
+  },
+  {
+    "minute": 33,
+    "zh": "秦王",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 2039.98
+  },
+  {
+    "minute": 33,
+    "zh": "的",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 2039.98
+  },
+  {
+    "minute": 33,
+    "zh": "儿子",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 2039.98
+  },
+  {
+    "minute": 33,
+    "zh": "了",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 2039.98
+  },
+  {
+    "minute": 34,
+    "zh": "的",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 2069.98
+  },
+  {
+    "minute": 34,
+    "zh": "信念",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 2069.98
+  },
+  {
+    "minute": 35,
+    "zh": "刀",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 2159.9
+  },
+  {
+    "minute": 36,
+    "zh": "我们",
+    "reason": "zero-length forced alignment; retained ASR timestamp",
+    "at": 2169.88
+  }
+]
