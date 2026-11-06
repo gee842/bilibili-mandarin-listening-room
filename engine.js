@@ -41,6 +41,8 @@ export function videoIdentity(url){
 export function wordBreakdown(word,lesson){const map=lesson?.characterBreakdowns;return map&&Object.hasOwn(map,word.zh)?map[word.zh]:null;}
 export function rubyParts(word,lesson){
   const chars=Array.from(word.zh),syllables=word.pinyin.trim().split(/\s+/);
+  // Numbers and mixed-script expressions can have a different spoken syllable count.
+  if(!/^\p{Script=Han}+$/u.test(word.zh))return [{zh:word.zh,pinyin:word.pinyin}];
   if(chars.length===syllables.length)return chars.map((zh,i)=>({zh,pinyin:syllables[i]}));
   const breakdown=wordBreakdown(word,lesson);
   if(breakdown?.characters.length===chars.length)return breakdown.characters.map(c=>({zh:c.zh,pinyin:c.pinyin}));

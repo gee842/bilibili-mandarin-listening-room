@@ -34,3 +34,9 @@ test('ruby uses per-character syllables when available and safe group ruby other
   const lesson={characterBreakdowns:{战国策:{characters:[{zh:'战',pinyin:'zhàn'},{zh:'国',pinyin:'guó'},{zh:'策',pinyin:'cè'}]}}};
   assert.deepEqual(rubyParts({zh:'战国策',pinyin:'Zhànguócè'},lesson).map(x=>x.pinyin),['zhàn','guó','cè']);
 });
+
+test('numeric expressions keep their spoken contextual pinyin above the whole word',()=>{
+  const word={zh:'30分钟',pinyin:'sānshífēnzhōng'};
+  const lesson={characterBreakdowns:{'30分钟':{characters:[{zh:'3',pinyin:'3'},{zh:'0',pinyin:'0'},{zh:'分',pinyin:'fēn'},{zh:'钟',pinyin:'zhōng'}]}}};
+  assert.deepEqual(rubyParts(word,lesson),[{zh:'30分钟',pinyin:'sānshífēnzhōng'}]);
+});

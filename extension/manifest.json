@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "听懂 · Bilibili Mandarin Listening Room",
+  "version": "0.3.0",
+  "description": "Prepare Mandarin lessons for Bilibili videos: transcription, translation, pinyin, forced alignment and character meanings.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.bilibili.com/*",
+        "https://m.bilibili.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "data/lesson.json"
+      ],
+      "matches": [
+        "https://www.bilibili.com/*",
+        "https://m.bilibili.com/*"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "nativeMessaging"
+  ],
+  "action": {
+    "default_title": "Show / hide Mandarin learning panel"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3FrfRYIui/07fPB2+wosl1kywV+9jug4GKRQV6LyoPp3kiFwUjes8Vqg5XKQE64jBMezShQKF3MJfTqxypcWZvtW34xH8VBwaHCa4/79eWOvIXBBKFGISLiyLhOZtuo5GJiuiXm+VrbJrKqmp3QI/ZtW+JduTLxo7YxpDChZONVRgsrZVRQC2jNqQHRKifnFFLQlLVwr/QthM4IqUvteOTQlpaF2T+nVf8Nqkj8Kd5VKE6PCwYFwxGxtVQ+94CtfXkOcuv60k7AvO5ducqbCRqO522t6C1B/x2GjKSNZMduZ6S75YbWqw5t14LxWIfaI44KY5SwG8PPUKN0nOEyvIwIDAQAB",
+  "minimum_chrome_version": "110"
+}

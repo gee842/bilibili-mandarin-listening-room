@@ -1,0 +1,6 @@
+stable-ts==2.19.1
+pypinyin>=0.55,<1
+yt-dlp>=2026.10.14
+numba==0.61.2
+llvmlite==0.44.0
+numpy>=2.2,<2.3

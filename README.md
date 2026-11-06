@@ -39,6 +39,14 @@ Word explanations include the combined contextual meaning, individual character 
 
 Character glosses are adapted from [CC-CEDICT](https://cc-cedict.org/wiki/), downloaded from MDBG under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Senses were abridged and learner glosses/composition notes added. The derived `characterBreakdowns` data and notes are shared under that license. Attribution is visible in word explanations. The recording remains on its original host.
 
-The desktop extension now supports playback controls on other Bilibili BV videos, with separately imported and locally saved lessons for each video and part. New videos need their own transcript, translations, pinyin and alignment; automatic new-video transcription is not implemented. The extension panel docks below the player and becomes an overlay inside browser fullscreen. Native video-only fullscreen/PiP cannot host the HTML panel.
+The desktop extension now supports playback controls on other Bilibili BV videos, with separately imported and locally saved lessons for each video and part. Version 0.3 adds a Prepare this video button connected to a locally installed helper, which transcribes, translates and aligns new videos using the configured API account. Each video retains its own lesson. The extension panel docks below the player and becomes an overlay inside browser fullscreen. Native video-only fullscreen/PiP cannot host the HTML panel.
 
 The website’s **Fullscreen study view** keeps the embedded player and lesson together in a fullscreen workspace. Bilibili’s iframe’s own fullscreen is separate and cannot display this website’s external captions. The cross-origin embed clock limitation remains unchanged.
+
+## Prepare this video (0.3)
+
+The extension’s preparation button connects through Chrome native messaging to a per-user local helper. The helper uses the existing Whisper-1 / GPT-4.1-mini / stable-ts pipeline, reports progress, supports checkpoint resume/cancel, and returns the validated lesson to local Chrome storage. No API key or audio is included in either public ZIP. Preparing a new recording incurs API usage and sends audio/text to OpenAI for processing. See [the helper README](pipeline/README.md) and [extension README](extension/README.md).
+
+Source for the extension is in `extension/`; source for the local helper is in `pipeline/`. Build the two ZIPs with `python3 scripts/build_extension.py`. This produces the website download files and sibling output copies. The helper ZIP uses an explicit file allowlist to exclude local credentials, audio, caches and checkpoints. The extension has a stable public manifest key so Chrome’s registered native host can allow only this extension.
+
+Regression checks: `npm test` and `python3 -m unittest discover -s pipeline/tests -v` (the latter’s grouping fallback test requires the helper’s Python dependencies).
