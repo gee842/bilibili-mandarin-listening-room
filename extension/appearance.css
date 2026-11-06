@@ -1,0 +1,23 @@
+/* Page surfaces change; video pixels and thumbnails keep their original colors. */
+html[data-tingdong-theme=dark]{color-scheme:dark;--bg1:#131817;--bg2:#1c2421;--bg3:#29332e;--bg1_float:#1c2421;--bg2_float:#232d28;--text1:#dce5dc;--text2:#acbbae;--text3:#8c9e90;--text4:#7b8f80;--line_regular:#3a483f;--line_light:#303d35;--line_dark:#526557;--graph_bg_regular:#29332e;--graph_bg_thin:#222c26;--brand_blue:#9dbb93;background:#131817!important}
+html[data-tingdong-theme=dark] body{background:#131817!important;color:#dce5dc!important;scrollbar-color:#536557 #17201b}
+html[data-tingdong-theme=dark] :is(#app,#biliMain,.main-container,.bili-video-container,.left-container,.right-container){background-color:#131817!important;color:#dce5dc!important}
+html[data-tingdong-theme=dark] :is(.bili-header,.bili-header__bar,.fixed-header,.header-v3,.bpx-player-sending-bar,.video-sections,.video-sections-head,.video-sections-content,.video-sections-item,.video-pod,.video-pod__header,.video-pod__body,.video-info-container,.recommend-list-v1,.rec-list,.video-page-card-small,.video-page-special-card-small,.up-info-container,.video-toolbar-container,.video-toolbar-left,.video-toolbar-right){background-color:#1c2421!important;color:#dce5dc!important;border-color:#3a483f!important}
+html[data-tingdong-theme=dark] :is(.bili-header__bar,.video-info-container,.right-container,.video-toolbar-container,.up-info-container) :is(a,h1,h2,h3,p,span){color:inherit}
+html[data-tingdong-theme=dark] :is(input,textarea,.bpx-player-sending-input){background-color:#253128!important;color:#dce5dc!important;border-color:#46594b!important}
+html[data-tingdong-theme=dark] :is(input,textarea)::placeholder{color:#a3b6a8!important}
+html[data-tingdong-theme=dark] :is(.video-title,.video-title-href,.title,.bili-video-card__info--tit){color:#dce5dc!important}
+html[data-tingdong-theme=dark] ::selection{background:#405c3f;color:#f0f3e9}
+/* Focus is an explicit, reversible view of the original page. */
+html[data-tingdong-focus] :is(.bili-header,#bili-header-container,.right-container,.bpx-player-sending-bar,.ad-report,#slide_ad){display:none!important}
+html[data-tingdong-focus] :is(.main-container,#mirror-vdcon,.video-container-v1){width:min(1100px,calc(100% - 32px))!important;max-width:1100px!important;min-width:0!important;margin:0 auto!important;padding:16px 0 0!important}
+html[data-tingdong-focus] .left-container{width:100%!important;min-width:0!important;margin:0!important}
+html[data-tingdong-focus] .left-container>:not(#playerWrap):not(.player-wrap):not(#tingdong-extension):not(.video-info-container){display:none!important}
+html[data-tingdong-focus] .video-info-container{height:auto!important;padding:0 0 10px!important;background:transparent!important}
+html[data-tingdong-focus] .video-info-container .video-title{font-size:17px!important;line-height:1.5!important}
+html[data-tingdong-focus] .video-info-meta{display:none!important}
+html[data-tingdong-focus] .bpx-player-video-wrap{height:100%!important}
+html[data-tingdong-focus] :is(#bilibili-player,.bpx-player-container,.bpx-player-video-area,.bpx-player-video-wrap){width:100%!important}
+html[data-tingdong-focus] video{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
+
+html[data-tingdong-focus] #app{min-width:0!important;width:100%!important}

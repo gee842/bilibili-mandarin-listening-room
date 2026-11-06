@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f2e9"><meta name="description" content="Study the exact Bilibili recording with a Mandarin listening workspace.">
+<script src="appearance.js"></script>
 <title>听懂 · Mandarin listening room</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><a class="brand" href="./"><span lang="zh">听懂</span><span>THE LISTENING ROOM</span></a></header>
+<header><a class="brand" href="./"><span lang="zh">听懂</span><span>THE LISTENING ROOM</span></a><nav class="appearance-controls" aria-label="Appearance"><button id="themeMode" aria-pressed="true">Dark</button><button id="focusMode" aria-pressed="false">Focus</button></nav></header>
 <main>
 <section class="intro"><h1 lang="zh">看透人心，守住自己<span class="dot">。</span></h1><p class="deck">Understand people. Stay true to yourself.</p><p class="byline"><span lang="zh">《战国策》</span> · <span id="creator">故纸观今</span> <span class="sep">/</span> 36 MIN</p></section>
 <div class="workspace">
@@ -27,6 +28,6 @@
 </div>
 <footer><span>One recording. Three ways to understand.</span><p><a href="mandarin-extension.zip" class="extension-link">Get the desktop Chrome extension ↗</a> · <a href="mandarin-pipeline-helper.zip">Local preparation helper ↗</a></p><a href="data/lesson.json" download="lesson.json">Editable lesson JSON ↗</a></footer>
 </main>
-<dialog id="vocab"><button id="closeVocab" aria-label="Close vocabulary explanation">✕</button><div class="eyebrow">WORD NOTE</div><h2 id="vocabZh" lang="zh"></h2><p id="vocabPy" class="pinyin"></p><h3>Together in this sentence</h3><p id="vocabEn"></p><div id="vocabCharacters"></div><p id="vocabNote" class="small"></p><button id="wordReplay">Listen to word ↻</button></dialog>
+<dialog id="vocab"><button id="closeVocab" aria-label="Close vocabulary explanation">✕</button><h2 id="vocabZh" lang="zh"></h2><p id="vocabPy" class="pinyin"></p><h3>Together in this sentence</h3><p id="vocabEn"></p><div id="vocabCharacters"></div><p id="vocabNote" class="small"></p><button id="wordReplay">Listen to word ↻</button></dialog>
 <script type="module" src="app.js"></script>
 </body></html>

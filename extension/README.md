@@ -1,4 +1,4 @@
-# 听懂 — Bilibili Mandarin Listening Room 0.3.1
+# 听懂 — Bilibili Mandarin Listening Room 0.3.2
 
 A desktop Chrome extension that connects to Bilibili’s original video element. Playback stays on Bilibili. The bundled full lesson is for [《战国策》：看透人心，守住自己 — 故纸观今](https://www.bilibili.com/video/BV1MRJa6sEsk/). Other BV videos and multipart episodes can have separately prepared or imported lessons.
 
@@ -22,6 +22,10 @@ Progress and Cancel appear in the panel. Preparation uses your configured OpenAI
 Finished stages are cached. Failed/cancelled jobs can resume without repeating those stages. An API operation already in progress may finish before cancellation takes effect. There are no automatic billable retries. The pipeline stops further submissions if over half of more than ten attempted calls have operationally failed; provider rejections are tracked separately.
 
 Inaccessible, login-only, paid or region-restricted videos are not bypassed. The pipeline fails rather than selecting another recording. New lessons remain automated drafts, not fully reviewed transcripts.
+
+## Dark and Focus modes (0.3.2)
+
+Video pages start in dark mode. **Dark** in the control strip switches between dark and the original light appearance. This themes the Bilibili page, captions, transcript and vocabulary notes without inverting or dimming video pixels. **Focus** hides the site header, recommendations and surrounding page clutter, leaving the original video and learning panel. Both choices are saved locally and shared between this extension’s video tabs. Turn Focus off to restore the original page layout. The same switches are available on the companion website.
 
 ## Compact study layout (0.3.1)
 

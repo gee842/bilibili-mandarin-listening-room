@@ -56,3 +56,9 @@ Regression checks: `npm test` and `python3 -m unittest discover -s pipeline/test
 The extension puts subtitles immediately beneath the video, with a single control strip underneath. Routine connection/completion banners stay hidden; Transcript contains preparation and lesson tools. The video height leaves room for readable Chinese, pinyin and English on laptop screens, and minimizing restores its normal size. Long captions scroll inside their own area. The companion website also uses a compact heading and puts source notices below its captions.
 
 The optional browser regression in `scripts/check_layout.cjs` requires Playwright and an extension-capable Chromium. Set `CHROMIUM_PATH` and `STUDY_AUDIO` to a local original recording, then run `node scripts/check_layout.cjs`. It checks laptop/narrow layouts, long sentences, replay, character notes, fullscreen, and restoration after minimizing. `STUDY_EXTENSION` can point to an earlier package to reproduce the old layout failure.
+
+## Dark and Focus modes (0.3.2)
+
+The website and extension default to a dark palette. Dark and Focus switches preserve their choices locally. The extension themes original Bilibili video pages without applying image filters to the video. Focus hides surrounding navigation/recommendations and centers the player; switching it off restores the regular page. The website’s Focus mode hides introductory material and the transcript column. Appearance preferences contain no account data or API credentials.
+
+The extension applies page appearance at document start through `extension/appearance.js` and `extension/appearance.css`; the learning panel uses matching semantic color variables. The website loads `appearance.js` before the stylesheet so saved preferences are applied before rendering.
