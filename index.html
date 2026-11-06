@@ -6,26 +6,26 @@
 <title>听懂 · Mandarin listening room</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><a class="brand" href="./"><span lang="zh">听懂</span><span>THE LISTENING ROOM</span></a><span class="edition">MANDARIN / 001</span></header>
+<header><a class="brand" href="./"><span lang="zh">听懂</span><span>THE LISTENING ROOM</span></a></header>
 <main>
-<section class="intro"><div class="eyebrow">LISTEN CLOSELY. UNDERSTAND MORE.</div><h1 lang="zh">看透人心，<br>守住自己<span class="dot">。</span></h1><p class="deck">Understand people. Stay true to yourself.</p><p><a href="mandarin-extension.zip" class="extension-link">Get the desktop Chrome extension ↗</a> · <a href="mandarin-pipeline-helper.zip">Local preparation helper ↗</a></p><p class="byline"><span lang="zh">《战国策》</span> · <span id="creator">故纸观今</span> <span class="sep">/</span> 36 MIN</p></section>
+<section class="intro"><h1 lang="zh">看透人心，守住自己<span class="dot">。</span></h1><p class="deck">Understand people. Stay true to yourself.</p><p class="byline"><span lang="zh">《战国策》</span> · <span id="creator">故纸观今</span> <span class="sep">/</span> 36 MIN</p></section>
 <div class="workspace">
 <section class="listen" aria-label="Listening workspace">
 <div class="section-label"><span>01 / LISTEN</span><span id="modeBadge">ORIGINAL SOURCE</span><button id="fullscreen">Fullscreen study view</button></div>
 <div id="embedWrap" class="embed-wrap"><iframe id="embed" title="Original Bilibili recording — 《战国策》：看透人心，守住自己" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-<div class="source-bar"><span class="source-dot"></span><span id="sourceText">Played by Bilibili · audio stays with the creator</span><a href="https://m.bilibili.com/video/BV1MRJa6sEsk" target="_blank" rel="noopener noreferrer">Open source ↗</a></div>
-<p id="notice" class="notice" role="status">Loading lesson…</p>
 <audio id="audio" preload="metadata" playsinline hidden></audio>
 <div id="nativeControls" hidden>
 <div class="timeline"><label for="seek">Recording position</label><input id="seek" type="range" min="0" max="2171" step="0.01" value="0"><div><output id="time">0:00</output><span id="total">36:11</span></div></div>
 <div class="transport"><button id="back" aria-label="Back 10 seconds">−10s</button><button id="play" class="play" aria-label="Play audio">▶</button><button id="forward" aria-label="Forward 10 seconds">+10s</button><label class="speed">Speed <select id="speed" aria-label="Playback speed"><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="1.75">1.75×</option><option value="2">2×</option></select></label></div>
 </div>
 <div class="caption-stage" aria-label="Synchronized subtitles"><div class="caption-meta"><span id="sentenceCount">YOUR LISTENING SPACE</span><button id="replay" disabled>↻ Replay sentence</button></div><p id="zh" lang="zh" class="chinese">从倾听开始。</p><p id="en" class="english">Start by listening.</p><p id="py" lang="zh-Latn-pinyin" class="sr-only" aria-hidden="true">Cóng qīngtīng kāishǐ.</p><p id="captionNote" class="small">Interface welcome · subtitles will appear here when a transcript is available.</p></div>
+<div class="source-bar"><span class="source-dot"></span><span id="sourceText">Played by Bilibili · audio stays with the creator</span><a href="https://m.bilibili.com/video/BV1MRJa6sEsk" target="_blank" rel="noopener noreferrer">Open source ↗</a></div>
+<p id="notice" class="notice" role="status">Loading lesson…</p>
 <details class="setup"><summary>Lesson files & playback options <span>＋</span></summary><p>The official embed keeps this exact recording on Bilibili. Bilibili controls its playback and speed; this page cannot read its playback clock. Automatic highlights and sentence loops require a readable audio clock.</p><label class="file-label">Use your local copy of this exact recording<input id="audioFile" type="file" accept="audio/*,video/mp4"></label><p class="small">Your file stays on your device. It is never uploaded. Use the original, untrimmed BV1MRJa6sEsk recording so timestamps match.</p><label class="file-label">Import an edited lesson JSON<input id="jsonFile" type="file" accept="application/json,.json"></label><button id="export">Export current JSON ↓</button><button id="embedMode" hidden>Return to official player</button><p id="importStatus" role="status"></p></details>
 </section>
 <aside class="transcript"><div class="section-label"><span>02 / TRANSCRIPT</span><label class="follow"><input id="follow" type="checkbox" checked> Follow</label></div><div class="transcript-toolbar"><label for="search" class="sr-only">Search transcript</label><input id="search" type="search" placeholder="Find a word or phrase…" disabled><span id="resultCount">0 sentences</span></div><div id="transcript" class="transcript-body"><div class="empty"><span lang="zh">听</span><h2>A little patience.<br>A deeper understanding.</h2><p id="emptyText">The exact source is ready in the official player. Its transcript has not yet been transcribed, aligned, or reviewed.</p></div></div><div class="transcript-foot">CHINESE <span>·</span> ENGLISH <span>·</span> PINYIN</div></aside>
 </div>
-<footer><span>One recording. Three ways to understand.</span><a href="data/lesson.json" download="lesson.json">Editable lesson JSON ↗</a></footer>
+<footer><span>One recording. Three ways to understand.</span><p><a href="mandarin-extension.zip" class="extension-link">Get the desktop Chrome extension ↗</a> · <a href="mandarin-pipeline-helper.zip">Local preparation helper ↗</a></p><a href="data/lesson.json" download="lesson.json">Editable lesson JSON ↗</a></footer>
 </main>
 <dialog id="vocab"><button id="closeVocab" aria-label="Close vocabulary explanation">✕</button><div class="eyebrow">WORD NOTE</div><h2 id="vocabZh" lang="zh"></h2><p id="vocabPy" class="pinyin"></p><h3>Together in this sentence</h3><p id="vocabEn"></p><div id="vocabCharacters"></div><p id="vocabNote" class="small"></p><button id="wordReplay">Listen to word ↻</button></dialog>
 <script type="module" src="app.js"></script>

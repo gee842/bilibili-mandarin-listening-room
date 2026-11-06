@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "听懂 · Bilibili Mandarin Listening Room",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Prepare Mandarin lessons for Bilibili videos: transcription, translation, pinyin, forced alignment and character meanings.",
   "content_scripts": [
     {

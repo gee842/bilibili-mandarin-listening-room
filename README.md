@@ -50,3 +50,9 @@ The extension’s preparation button connects through Chrome native messaging to
 Source for the extension is in `extension/`; source for the local helper is in `pipeline/`. Build the two ZIPs with `python3 scripts/build_extension.py`. This produces the website download files and sibling output copies. The helper ZIP uses an explicit file allowlist to exclude local credentials, audio, caches and checkpoints. The extension has a stable public manifest key so Chrome’s registered native host can allow only this extension.
 
 Regression checks: `npm test` and `python3 -m unittest discover -s pipeline/tests -v` (the latter’s grouping fallback test requires the helper’s Python dependencies).
+
+## Compact reading layout (0.3.1)
+
+The extension puts subtitles immediately beneath the video, with a single control strip underneath. Routine connection/completion banners stay hidden; Transcript contains preparation and lesson tools. The video height leaves room for readable Chinese, pinyin and English on laptop screens, and minimizing restores its normal size. Long captions scroll inside their own area. The companion website also uses a compact heading and puts source notices below its captions.
+
+The optional browser regression in `scripts/check_layout.cjs` requires Playwright and an extension-capable Chromium. Set `CHROMIUM_PATH` and `STUDY_AUDIO` to a local original recording, then run `node scripts/check_layout.cjs`. It checks laptop/narrow layouts, long sentences, replay, character notes, fullscreen, and restoration after minimizing. `STUDY_EXTENSION` can point to an earlier package to reproduce the old layout failure.

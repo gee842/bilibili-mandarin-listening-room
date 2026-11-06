@@ -15,4 +15,4 @@ with zipfile.ZipFile(OUT/'mandarin-pipeline-helper.zip','w',zipfile.ZIP_DEFLATED
  for name in ['native_host.py','pipeline.py','timing.py','character-dictionary.json','install.py','Install helper.command','requirements.txt','extension-identity.json','README.md']:
   z.write(ROOT/'pipeline'/name,'mandarin-pipeline-helper/'+name)
 shutil.copy2(OUT/'mandarin-pipeline-helper.zip',ROOT/'mandarin-pipeline-helper.zip')
-print('Built extension 0.3 and local helper ZIP; no API keys or audio included.')
+print(f'Built extension {manifest["version"]} and local helper ZIP; no API keys or audio included.')

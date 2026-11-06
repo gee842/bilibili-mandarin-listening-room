@@ -1,4 +1,4 @@
-# 听懂 — Bilibili Mandarin Listening Room 0.3
+# 听懂 — Bilibili Mandarin Listening Room 0.3.1
 
 A desktop Chrome extension that connects to Bilibili’s original video element. Playback stays on Bilibili. The bundled full lesson is for [《战国策》：看透人心，守住自己 — 故纸观今](https://www.bilibili.com/video/BV1MRJa6sEsk/). Other BV videos and multipart episodes can have separately prepared or imported lessons.
 
@@ -15,7 +15,7 @@ Chrome on iPhone does not support Chrome extensions. The companion website remai
 
 ## Prepare this video
 
-Install the one-time [local preparation helper](https://gee842.github.io/bilibili-mandarin-listening-room/mandarin-pipeline-helper.zip), then press **Prepare this video** on the current recording. Chrome starts the helper when needed. It retrieves the publicly accessible audio for private processing, transcribes Mandarin, corrects/translates the text, adds pinyin/vocabulary, runs forced alignment and adds literal character meanings. A valid finished lesson loads automatically and is saved for this video and part.
+Install the one-time [local preparation helper](https://gee842.github.io/bilibili-mandarin-listening-room/mandarin-pipeline-helper.zip), then open **Transcript** and press **Prepare this video** on the current recording. Chrome starts the helper when needed. It retrieves the publicly accessible audio for private processing, transcribes Mandarin, corrects/translates the text, adds pinyin/vocabulary, runs forced alignment and adds literal character meanings. A valid finished lesson loads automatically and is saved for this video and part.
 
 Progress and Cancel appear in the panel. Preparation uses your configured OpenAI API account and incurs usage charges. Audio chunks are sent for transcription and transcript text for editing/translation. Audio and provider checkpoints remain local and are not rehosted. The API key stays in the helper’s private local `.env`; it is not included in the extension or either downloadable ZIP.
 
@@ -23,13 +23,17 @@ Finished stages are cached. Failed/cancelled jobs can resume without repeating t
 
 Inaccessible, login-only, paid or region-restricted videos are not bypassed. The pipeline fails rather than selecting another recording. New lessons remain automated drafts, not fully reviewed transcripts.
 
+## Compact study layout (0.3.1)
+
+Chinese, ruby pinyin and English sit immediately below the original video. A single compact control strip sits below the subtitles. Routine connection and completed-job banners stay hidden. The video’s available height adjusts to keep subtitles and controls in the same viewport; minimizing the panel restores Bilibili’s normal size. Long subtitles scroll within the caption area without pushing the video out of view. Vocabulary notes open above the panel, over part of the video, without scrolling the page away from it.
+
 ## Study controls
 
 - Tone-marked pinyin directly above Chinese using compact ruby annotations, with natural English below. Logical word groups remain clickable and highlight together.
 - Click a word for its whole meaning, individual character senses and available idiom/composition notes. Literal character senses are reading aids, not etymologies. Personal names are identified as names.
 - Sentence and word replay, play/pause, ±10 seconds, position slider and speed 0.5×–2×.
 - The panel stays below the player in normal/wide viewing and moves inside the fullscreen video container as an overlay. **Fullscreen** in the panel opens this study view. Native system video-only fullscreen and picture-in-picture cannot host arbitrary HTML overlays.
-- **Transcript & lessons** opens the following transcript, search and file controls, including during fullscreen.
+- **Transcript** opens the following transcript, preparation button, search and file controls, including during fullscreen.
 
 ## Editable lessons
 
