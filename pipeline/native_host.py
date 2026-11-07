@@ -68,7 +68,7 @@ def main():
         if message is None:break
         command=message.get('command')
         with (pathlib.Path(CONFIG['jobs'])/'host-status.log').open('a')as log:log.write(json.dumps({'command':command,'bvid':message.get('bvid'),'page':message.get('page')})+'\n')
-        if command=='ping':send({'type':'ready','version':'0.3.0','configured':pathlib.Path(CONFIG['envFile']).exists()or bool(os.environ.get('OPENAI_API_KEY'))});continue
+        if command=='ping':send({'type':'ready','version':'0.4.0','configured':pathlib.Path(CONFIG['envFile']).exists()or bool(os.environ.get('OPENAI_API_KEY'))});continue
         try:key=identity(message.get('bvid'),message.get('page'))
         except Exception:send({'type':'error','message':'Invalid Bilibili video or part.'});continue
         if command=='cancel':

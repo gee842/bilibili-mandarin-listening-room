@@ -21,7 +21,7 @@ def main():
     ytdlp=str(local_ytdlp)if local_ytdlp.is_file()else shutil.which('yt-dlp')
     if not ytdlp or not pathlib.Path(ytdlp).is_file():raise SystemExit('yt-dlp is required. Install it, then run this installer again.')
     runtime=app/'runner';runtime.mkdir(exist_ok=True)
-    for name in ['native_host.py','pipeline.py','timing.py','character-dictionary.json']:
+    for name in ['native_host.py','pipeline.py','timing.py','meaning.py','character-dictionary.json']:
         dest=runtime/name
         if (HERE/name).resolve()!=dest.resolve():shutil.copy2(HERE/name,dest)
     envfile=app/'.env';key=os.environ.get('OPENAI_API_KEY')
@@ -39,6 +39,6 @@ def main():
     native=pathlib.Path(args.native_dir)if args.native_dir else pathlib.Path.home()/'Library/Application Support/Google/Chrome/NativeMessagingHosts';native.mkdir(parents=True,exist_ok=True)
     manifest={'name':HOST,'description':'Mandarin lesson preparation on this Mac','path':str(launcher),'type':'stdio','allowed_origins':[origin]}
     (native/(HOST+'.json')).write_text(json.dumps(manifest,indent=2)+'\n')
-    print('Helper installed. Reload extension 0.3, refresh Bilibili, and press Prepare this video.')
+    print('Helper installed. Reload extension 0.4, refresh Bilibili, and press Prepare this video.')
     print('Extension ID: '+extension_id(public['key']))
 if __name__=='__main__':main()

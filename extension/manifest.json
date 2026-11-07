@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "听懂 · Bilibili Mandarin Listening Room",
-  "version": "0.3.2",
-  "description": "Prepare Mandarin lessons for Bilibili videos: transcription, translation, pinyin, forced alignment and character meanings.",
+  "version": "0.4.0",
+  "description": "Prepare Mandarin lessons for Bilibili videos: transcription, translation, pinyin, forced alignment, linked meanings and character notes.",
   "content_scripts": [
     {
       "matches": [
@@ -31,7 +31,8 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "data/lesson.json"
+        "data/lesson.json",
+        "data/meaning-links.json"
       ],
       "matches": [
         "https://www.bilibili.com/*",

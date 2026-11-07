@@ -1,4 +1,4 @@
-# 听懂 — Bilibili Mandarin Listening Room 0.3.2
+# 听懂 — Bilibili Mandarin Listening Room 0.4.0
 
 A desktop Chrome extension that connects to Bilibili’s original video element. Playback stays on Bilibili. The bundled full lesson is for [《战国策》：看透人心，守住自己 — 故纸观今](https://www.bilibili.com/video/BV1MRJa6sEsk/). Other BV videos and multipart episodes can have separately prepared or imported lessons.
 
@@ -29,7 +29,7 @@ Video pages start in dark mode. **Dark** in the control strip switches between d
 
 ## Compact study layout (0.3.1)
 
-Chinese, ruby pinyin and English sit immediately below the original video. A single compact control strip sits below the subtitles. Routine connection and completed-job banners stay hidden. The video’s available height adjusts to keep subtitles and controls in the same viewport; minimizing the panel restores Bilibili’s normal size. Long subtitles scroll within the caption area without pushing the video out of view. Vocabulary notes open above the panel, over part of the video, without scrolling the page away from it.
+Chinese, ruby pinyin and English sit immediately below the original video. A single compact control strip sits below the subtitles. Routine connection and completed-job banners stay hidden. The video’s available height adjusts to keep subtitles and controls in the same viewport; minimizing the panel restores Bilibili’s normal size. Long subtitles scroll within the caption area without pushing the video out of view. Vocabulary notes open directly underneath the bilingual sentence, inside its caption area or transcript row. Opening a note pauses playback; the note scrolls independently and leaves the video unobstructed.
 
 ## Study controls
 
@@ -56,3 +56,13 @@ Bilibili may change its layout or override settings. Background tabs may delay r
 ## Dictionary attribution
 
 Character and fallback vocabulary glosses are adapted from [CC-CEDICT](https://cc-cedict.org/wiki/), downloaded from MDBG, under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Senses were abridged, readings selected automatically and learner/composition notes added. The derived dictionary, character data and adapted notes use that license, with attribution in the interface. This does not change any recording’s rights.
+
+## Linked meanings and inline notes (0.4)
+
+Hover or focus a word in either language to underline its connections in the other language. Tap to keep the connection selected and read the explanation directly beneath that bilingual sentence. Pinyin follows its Chinese base. Playback also highlights the corresponding English phrase. Notes work below the player, in the transcript and in fullscreen, and opening one pauses playback for reading. Close the note or press Escape, then resume with Play. Matching underlines use three muted accents; double underlines indicate overlapping connections.
+
+Links support reordered, discontinuous, many-to-many and overlapping phrases. Chinese grammar without a separate English counterpart and English-only wording have explicit notes. The natural English translation is preserved. These are automatic contextual links, not a full linguistic review; uncertain counterparts stay unlinked and marked for review.
+
+Existing known lessons get a text-fingerprint-checked upgrade when the extension loads them. It preserves source identity, edited text, timestamps and existing meaning links. The public upgrade file contains token indices/fingerprints and generic unmatched-word notices; private lesson transcripts and detailed new-video teaching notes remain local. A modified translation or word segmentation needs its own updated links: import a matching upgraded JSON or use Prepare with the updated helper. Preparing a cached old lesson adds links without repeating ASR or forced alignment. Future preparation includes this stage automatically. The helper on this Mac is updated with this release; other installations must update the helper files.
+
+Editable JSON: each sentence may contain `meaningLinks: [{zh: [0, 1], en: [2, 3], note: "optional explanation"}]`. Indices are zero-based into Chinese `words` and English word tokens. English punctuation/spacing are preserved; contractions and hyphenated words are single tokens. A token can occur in several links; indices inside a single link must be unique and ordered. Every token is accounted for, including explicitly unmatched groups with a note. `meaningAlignment.reviewed` remains false.

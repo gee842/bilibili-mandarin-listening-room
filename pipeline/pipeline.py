@@ -1,6 +1,7 @@
 """Resumable Mandarin lesson preparation. API credentials never enter the extension."""
 import concurrent.futures, contextlib, fcntl, http.client, io, json, math, os, pathlib, re, signal, subprocess, sys, threading, time, unicodedata, urllib.error, urllib.request, uuid
 from timing import chars, raw_chars, map_times
+from meaning import enrich_meanings,validate_links
 HERE=pathlib.Path(__file__).resolve().parent
 CANCEL=threading.Event()
 class Cancelled(Exception):pass
@@ -76,14 +77,18 @@ def api_request(body,content_type,ledger,operation,endpoint,validate=lambda x:x)
         if not key:raise PipelineError('API key missing. Run Install helper.command to configure it locally.')
         req=urllib.request.Request('https://api.openai.com/v1/'+endpoint,data=body,headers={'Authorization':'Bearer '+key,'Content-Type':content_type})
         try:
-            with urllib.request.urlopen(req,timeout=120)as response:data=json.load(response)
+            # Phrase alignment can return a large answer on a slow connection.
+            with urllib.request.urlopen(req,timeout=300 if operation.startswith('meaning links')else 120)as response:data=json.load(response)
         except urllib.error.HTTPError as e:
             # Provider rejections count as attempts but separately from operational failures.
             if e.code in [400,401,403,429]:
-                ledger.finish(index,'rejected',http=e.code)
+                try:reason=json.loads(e.read()).get('error',{}).get('message','')
+                except (ValueError,AttributeError):reason=''
+                ledger.finish(index,'rejected',http=e.code,reason=str(reason).replace(key,'[redacted]')[:500])
                 raise PipelineError(f'OpenAI rejected this request (HTTP {e.code}). Check API access or quota. No automatic retry was submitted.')from None
             raise PipelineError(f'OpenAI request failed (HTTP {e.code}). Completed stages are saved.')from None
-        except (urllib.error.URLError,TimeoutError,http.client.RemoteDisconnected,ConnectionError):
+        except (urllib.error.URLError,TimeoutError,http.client.RemoteDisconnected,ConnectionError)as e:
+            ledger.finish(index,'failure',reason=type(e).__name__)
             raise PipelineError('The API connection was interrupted. Completed stages are saved; press Resume preparation to retry the unfinished stage.')from None
         result=validate(data);ledger.finish(index,'success',usage=data.get('usage'));return result
     except Cancelled:raise
@@ -176,6 +181,9 @@ def validate_lesson(lesson):
     previous=0
     for s in lesson['sentences']:
         if s['start']<previous or not s['end']>s['start']or s['end']>lesson['source']['duration']+.5:raise PipelineError('Alignment exceeded sentence or recording bounds; review the saved checkpoint.')
+        if 'meaningLinks'in s:
+            try:validate_links(s,s['meaningLinks'])
+            except ValueError as e:raise PipelineError(str(e))from None
         previous=s['end'];wordend=s['start']
         if chars(s['zh'])!=''.join(chars(w['zh'])for w in s['words']):raise PipelineError('Aligned Chinese does not match its words.')
         for w in s['words']:
@@ -192,7 +200,13 @@ def prepare_unlocked(request,config,emit):
     def progress(stage,message,percent):
         with progress_lock:
             check_cancel();last_percent[0]=max(last_percent[0],percent);event={'type':'progress','key':key,'state':'running','stage':stage,'message':message,'percent':last_percent[0]};write_json(job/'status.json',event);emit(event)
-    if (job/'lesson.json').exists():return validate_lesson(read_json(job/'lesson.json'))
+    if (job/'lesson.json').exists():
+        lesson=validate_lesson(read_json(job/'lesson.json'))
+        if any('meaningLinks'not in s for s in lesson['sentences']):
+            ledger=Attempts(job/'attempts.json');progress('meaning','Linking the saved English and Mandarin meanings…',94)
+            enrich_meanings(lesson,job,ledger,api_request,write_json,check_cancel,lambda n,total:progress('meaning',f'Linking meanings · {n}/{total} sentences',94+5*n/total))
+            validate_lesson(lesson);write_json(job/'lesson.json',lesson)
+        return lesson
     if not os.environ.get('OPENAI_API_KEY'):raise PipelineError('No API key is configured. Run the local helper installer first.')
     ledger=Attempts(job/'attempts.json');url=f'https://www.bilibili.com/video/{bvid}/?p={page}'
     progress('source','Checking the original Bilibili video…',2)
@@ -257,7 +271,9 @@ def prepare_unlocked(request,config,emit):
         raise
     progress('vocabulary','Adding literal character meanings and validating the lesson…',93)
     lesson={'version':1,'source':{'bvid':bvid,'page':page,'url':url,'title':info['title'],'creator':info.get('uploader')or'','duration':duration},'audio':None,'status':'machine-edited-draft','sentences':all_sentences,'alignment':{'method':'stable-ts / Whisper tiny cross-attention forced alignment constrained by Whisper-1 sentence ranges','reviewed':False,'fallbackWordCount':len(all_flags),'notes':'Automated draft; ASR fallback timings are explicitly flagged. No complete human linguistic/acoustic review.'},'transcription':{'model':'whisper-1','correction':'gpt-4.1-mini','segmentationFallbackWordCount':sum(w.get('segmentationStatus')=='dictionary-fallback'for s in all_sentences for w in s['words']),'language':'zh','sourceBvid':bvid,'complete':not bool(test_seconds),'processedDuration':end}}
-    enrich(lesson,read_json(HERE/'character-dictionary.json'));validate_lesson(lesson);write_json(job/'alignment-review.json',all_flags);write_json(job/'lesson.json',lesson)
+    enrich(lesson,read_json(HERE/'character-dictionary.json'));progress('meaning','Linking the English and Mandarin meanings…',94)
+    enrich_meanings(lesson,job,ledger,api_request,write_json,check_cancel,lambda n,total:progress('meaning',f'Linking meanings · {n}/{total} sentences',94+5*n/total))
+    validate_lesson(lesson);write_json(job/'alignment-review.json',all_flags);write_json(job/'lesson.json',lesson)
     progress('complete','Lesson prepared. Loading synchronized subtitles…',100);return lesson
 
 def prepare(request,config,emit):

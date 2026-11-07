@@ -18,6 +18,7 @@ export function validateLesson(data, expectedBvid=BVID, expectedPage=1) {
     let we=s.start;
     for(const w of s.words){if(!Number.isFinite(w.start)||!Number.isFinite(w.end)||w.start<we-.001||w.start<s.start||w.end>s.end+.001||w.end<=w.start)throw Error('Word timestamps must be ordered within the sentence.');if(!['zh','pinyin','en'].every(k=>typeof w[k]==='string'&&w[k].trim()))throw Error('Each word needs Chinese, pinyin, and an explanation.');we=w.end;}
     if(s.words.map(w=>w.zh).join('').replace(/[\p{P}\p{Z}\s]/gu,'')!==s.zh.replace(/[\p{P}\p{Z}\s]/gu,''))throw Error('Aligned words must match the Chinese sentence.');
+    validateMeaningLinks(s);
     end=s.end;
   }
   if(data.characterBreakdowns!=null){
@@ -47,4 +48,42 @@ export function rubyParts(word,lesson){
   const breakdown=wordBreakdown(word,lesson);
   if(breakdown?.characters.length===chars.length)return breakdown.characters.map(c=>({zh:c.zh,pinyin:c.pinyin}));
   return [{zh:word.zh,pinyin:word.pinyin}];
+}
+
+// Token indices, rather than character offsets, are shared with pipeline/meaning.py.
+export function englishPieces(text){
+  const matches=[...text.matchAll(/[\p{L}\p{N}]+(?:['’‐‑-][\p{L}\p{N}]+)*/gu)];let end=0;
+  return matches.map((m,index)=>{const before=text.slice(end,m.index);end=m.index+m[0].length;return {text:m[0],index,before,after:index===matches.length-1?text.slice(end):''};});
+}
+export function validateMeaningLinks(s){
+  if(s.meaningLinks==null)return;
+  if(!Array.isArray(s.meaningLinks)||!s.meaningLinks.length)throw Error('Meaning links must be a nonempty array.');
+  const counts={zh:s.words.length,en:englishPieces(s.en).length},seen={zh:new Set(),en:new Set()};
+  for(const link of s.meaningLinks){
+    if(!link||typeof link!=='object')throw Error('Invalid meaning link.');
+    for(const side of ['zh','en']){
+      const ids=link[side];if(!Array.isArray(ids))throw Error('Meaning indices must be arrays.');
+      let previous=-1;for(const i of ids){if(!Number.isSafeInteger(i)||i<0||i>=counts[side]||i<=previous)throw Error('Meaning index is duplicated or outside this sentence.');seen[side].add(i);previous=i;}
+    }
+    if(!link.zh.length&&!link.en.length)throw Error('Empty meaning link.');
+    if(link.note!=null&&typeof link.note!=='string')throw Error('Invalid meaning note.');
+    if((!link.zh.length||!link.en.length)&&!link.note?.trim())throw Error('Unmatched meaning needs an explanation.');
+  }
+  if(['zh','en'].some(k=>seen[k].size!==counts[k]))throw Error('Meaning links must account for every token.');
+}
+export const meaningForWord=(s,i)=>s.meaningLinks?.find(l=>l.zh.includes(i))||null;
+export const meaningForEnglish=(s,i)=>s.meaningLinks?.find(l=>l.en.includes(i))||null;
+export function meaningPhrase(s,link){
+  const pieces=englishPieces(s.en);return (link?.en||[]).map((i,n,ids)=>(n?(i===ids[n-1]+1?pieces[i].before:' … '):'')+pieces[i].text).join('');
+}
+export async function lessonFingerprint(lesson){
+  const text=JSON.stringify(lesson.sentences.map(s=>[s.zh,s.en,s.words.map(w=>w.zh)]));
+  return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))].map(x=>x.toString(16).padStart(2,'0')).join('');
+}
+export async function applyMeaningPack(lesson,pack){
+  const fingerprint=await lessonFingerprint(lesson),entry=pack?.[fingerprint]??pack?.[`${lesson.source.bvid}:${lesson.source.page??1}`];
+  if(!entry||entry.links?.length!==lesson.sentences.length||entry.fingerprint!==fingerprint)return false;
+  // Validate the entire upgrade before mutating an existing saved lesson.
+  entry.links.forEach((meaningLinks,i)=>validateMeaningLinks({...lesson.sentences[i],meaningLinks:lesson.sentences[i].meaningLinks??meaningLinks}));
+  lesson.sentences.forEach((s,i)=>s.meaningLinks??=entry.links[i]);lesson.meaningAlignment=entry.alignment;return true;
 }

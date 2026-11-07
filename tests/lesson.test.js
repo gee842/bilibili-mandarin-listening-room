@@ -15,3 +15,12 @@ test('bundled lesson keeps all recording segments with complete multi-character 
   assert.match(lesson.characterBreakdowns['苏秦'].note,/personal name/);
   assert.equal(lesson.characterGlossSource.license,'CC BY-SA 4.0');
 });
+
+test('bundled lesson has complete English links and a verified reordered opening example',()=>{
+  assert.ok(lesson.sentences.every(s=>s.meaningLinks?.length));
+  assert.equal(lesson.meaningAlignment.reviewed,false);
+  const first=lesson.sentences[0];
+  assert.equal(first.en,'Finish a whole book in forty minutes.');
+  assert.deepEqual(first.meaningLinks.find(l=>l.zh.includes(0)).en,[4,5,6]);
+  assert.deepEqual(first.meaningLinks.find(l=>l.zh.includes(2)).en,[1,2,3]);
+});

@@ -14,21 +14,26 @@ root.innerHTML=`<style>
 header{display:flex;align-items:center;gap:4px;padding:4px 8px;min-height:44px;border-top:1px solid var(--line)}header strong{font:17px serif;margin-right:4px;white-space:nowrap}header button{font-size:11px;padding:4px 8px;border-color:transparent}header button:hover{background:var(--hover)}#seek{flex:1;min-width:48px;width:80px;margin:0 4px;accent-color:var(--ink)}#time{font-size:11px;font-variant-numeric:tabular-nums}#speed{min-height:36px;border:0;background:transparent;font-size:12px;max-width:62px}#status{margin:0;padding:8px 16px;background:var(--soft);font-size:12px;line-height:1.5}
 #pipeline{padding:8px 16px;background:var(--soft);font-size:12px;line-height:1.5}#pipeline>div{display:flex;align-items:center;gap:12px;justify-content:space-between}#pipeline progress{width:100%;height:4px;accent-color:var(--accent)}#pipelineHelp{margin:8px 0}#prepare{background:var(--ink);color:var(--surface)}
 #extras{border-top:1px solid var(--line)}.lesson-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 12px}.lesson-tools #source,.lesson-tools #count{font-size:10px;color:var(--muted)}.lesson-tools #source{margin-left:auto}.toolbar{display:flex;gap:12px;align-items:center;padding:0 16px}.toolbar input[type=search]{flex:1;min-width:0;background:transparent;border:0;padding:10px 0}.toolbar label{white-space:nowrap;font-size:12px}#transcript{max-height:300px;overflow:auto;overscroll-behavior:contain;scrollbar-color:var(--muted) var(--bg);scrollbar-width:thin}article{padding:10px 16px;border-top:1px solid var(--line);border-left:1px solid transparent}article.active{border-left-color:var(--accent);background:var(--surface)}article>button{border:0;min-height:32px;font-size:10px;color:var(--muted)}article p{font:14px/1.6 Georgia,serif;margin:3px 0}article .zh{font:22px/1.9 serif}.empty,.note{font-size:12px;line-height:1.7;color:var(--muted)}.empty{padding:16px}details{border-top:1px solid var(--line);padding:8px 16px;font-size:12px}summary{padding:6px 0;min-height:36px}details label{display:block;margin:10px 0}details input{max-width:100%;display:block;margin:8px 0}#importStatus{font-size:12px;line-height:1.6}
-#vocab{position:absolute;z-index:2;right:8px;bottom:calc(100% + 8px);width:min(380px,calc(100% - 16px));padding:12px 16px;background:var(--surface);border:1px solid var(--line);border-radius:8px;max-height:45vh;overflow:auto;box-shadow:0 8px 24px #17271f26}#vocab h2{font:28px serif;margin:4px 0}#vocab h3{font-size:11px;margin:16px 0 8px}#vp{color:var(--pronunciation)}#ve{line-height:1.6}#closeWord{float:right;border:0}.character-list{margin:12px 0}.character-list>div{display:grid;grid-template-columns:50px minmax(0,1fr);gap:14px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.character-list dt{font:26px/1.9 serif;text-align:center}.character-list dd{margin:0;font-size:13px;line-height:1.6}.character-list rt{font-size:12px}.composition-note{font-size:13px;line-height:1.65;background:var(--soft);padding:12px;border-radius:6px}.dictionary-note{font-size:10px;line-height:1.65;color:var(--muted)}#toggle{background:var(--ink);color:var(--bg);border:0;border-radius:20px;padding:10px 20px}
+#vocab{position:static;width:100%;padding:10px 14px;margin:10px 0 0;background:var(--bg);border:1px solid var(--line);border-radius:6px;max-height:220px;overflow:auto;overscroll-behavior:contain;box-shadow:none;font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}#vocab h2{font:28px serif;margin:4px 0}#vocab h3{font-size:11px;margin:16px 0 8px}#vp{color:var(--pronunciation)}#ve{line-height:1.6}#closeWord{float:right;border:0;min-width:44px;min-height:44px;padding:6px}.character-list{margin:12px 0}.character-list>div{display:grid;grid-template-columns:50px minmax(0,1fr);gap:14px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.character-list dt{font:26px/1.9 serif;text-align:center}.character-list dd{margin:0;font-size:13px;line-height:1.6}.character-list rt{font-size:12px}.composition-note{font-size:13px;line-height:1.65;background:var(--soft);padding:12px;border-radius:6px}.dictionary-note{font-size:10px;line-height:1.65;color:var(--muted)}#toggle{background:var(--ink);color:var(--bg);border:0;border-radius:20px;padding:10px 20px}
 :host([data-overlay]){position:absolute!important;inset:auto 5% 60px!important;width:90%!important;margin:0!important;z-index:2147483647!important;pointer-events:none}:host([data-overlay]) #panel,:host([data-overlay]) #toggle{pointer-events:auto}:host([data-overlay]) #panel{max-height:65vh;overflow:visible;background:var(--bg)}:host([data-overlay]) .caption{padding:8px 16px}:host([data-overlay]) #zh{font-size:clamp(26px,2.3vw,34px)}:host([data-overlay]) #en{font-size:clamp(17px,1.4vw,21px)}:host([data-overlay]) #extras{max-height:30vh;overflow:auto}:host([data-overlay]) #vocab{max-height:38vh}:host([data-overlay]) #toggle{float:right}
 @media(max-width:600px){header{flex-wrap:wrap;padding:4px 8px;gap:2px}header strong{display:none}header button,#speed{min-height:44px}header #seek{min-width:60px}header #replay{margin-left:auto}#zh{font-size:26px}#en{font-size:17px}.caption{padding:8px 12px}#fullscreen{font-size:10px}:host([data-overlay]){inset:auto 2% 44px!important;width:96%!important}}
 
+:host{--meaning-a:#426d33;--meaning-b:#365f84;--meaning-c:#80532d}:host([data-dark]){--meaning-a:#b6ca9e;--meaning-b:#9cbfd6;--meaning-c:#e4ba94}
+.meaning-word{display:inline;min-height:0;padding:0;border:0;border-radius:2px;font:inherit;line-height:inherit;color:inherit;background:transparent;text-align:inherit}.has-meaning{text-decoration:underline dotted var(--line);text-underline-offset:5px;text-decoration-thickness:1px}[data-meaning-pattern="0"]{--meaning-color:var(--meaning-a)}[data-meaning-pattern="1"]{--meaning-color:var(--meaning-b)}[data-meaning-pattern="2"]{--meaning-color:var(--meaning-c)}
+.meaning-hover,.meaning-selected{text-decoration-color:var(--meaning-color,var(--meaning-a));text-decoration-style:solid;text-decoration-thickness:2px;background:var(--highlight);color:var(--ink)}[data-meaning-overlap].meaning-hover,[data-meaning-overlap].meaning-selected{text-decoration-style:double}.meaning-current{background:var(--highlight);color:var(--ink)}.meaning-selected{outline:1px solid var(--meaning-color,var(--meaning-a));outline-offset:1px}
+#vocab h2{font-size:26px}#vocab p{font:13px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:4px 0}#vocab #vp{color:var(--pronunciation)}#vocab .character-list{margin:6px 0}#vocab .character-list>div{padding:6px 0}#vocab .dictionary-note{font-size:11px}#vocab .meaning-match{font-weight:500}
 header button[aria-pressed=true]{background:var(--soft);border-color:var(--accent)}
 </style>
 <section id="panel" role="region" aria-label="Mandarin listening room">
 <div class="caption" tabindex="0" aria-label="Current subtitles"><p id="zh" lang="zh">选择课程</p><p id="en">Prepare a lesson to see synchronized subtitles.</p><p id="py" aria-hidden="true"></p></div>
 <header aria-label="Study controls"><strong lang="zh">听懂</strong><button id="play" aria-label="Play recording">▶</button><input id="seek" type="range" min="0" max="2171" step="0.01" value="0" aria-label="Recording position"><span id="time">0:00</span><select id="speed" aria-label="Playback speed"><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="1.75">1.75×</option><option value="2">2×</option></select><button id="replay" disabled>↻ Sentence</button><button id="expand" aria-expanded="false">Transcript</button><button id="themeMode" aria-pressed="true" title="Switch to light mode">Dark</button><button id="focusMode" aria-pressed="false" title="Hide recommendations and page clutter">Focus</button><button id="fullscreen">Fullscreen</button><button id="close" aria-label="Minimize learning panel">−</button></header>
 <p id="status" role="status">Connecting to Bilibili…</p><section id="pipeline" hidden><div><span id="pipelineText" role="status"></span><button id="cancelPrepare">Cancel</button></div><progress id="pipelineProgress" max="100" value="0" aria-label="Lesson preparation progress"></progress><p id="pipelineHelp" hidden>Install the <a href="https://gee842.github.io/bilibili-mandarin-listening-room/mandarin-pipeline-helper.zip" target="_blank" rel="noopener noreferrer">local preparation helper</a>, then try again.</p></section>
-<section id="vocab" role="dialog" aria-label="Vocabulary explanation" hidden><button id="closeWord" aria-label="Close word note">✕</button><h2 id="vz" lang="zh"></h2><p id="vp" lang="zh-Latn-pinyin"></p><h3>Together in this sentence</h3><p id="ve"></p><div id="characters"></div><p id="vn" class="note"></p><button id="wordReplay">Listen to word ↻</button></section>
+<section id="vocab" role="region" aria-label="Vocabulary explanation" hidden><button id="closeWord" aria-label="Close word note">✕</button><h2 id="vz" lang="zh"></h2><p id="vp" lang="zh-Latn-pinyin"></p><p id="meaningMatch" class="meaning-match"></p><h3>Together in this sentence</h3><p id="ve"></p><div id="characters"></div><p id="vn" class="note"></p><button id="wordReplay">Listen to selection ↻</button></section>
 <div id="extras" hidden><div class="lesson-tools"><button id="prepare">Prepare this video</button><button id="back" aria-label="Back 10 seconds">−10s</button><button id="forward" aria-label="Forward 10 seconds">+10s</button><span id="count">NO LESSON YET</span><span id="source"></span></div><div class="toolbar"><input id="search" type="search" placeholder="Find a word or phrase…" aria-label="Search transcript"><label><input id="follow" type="checkbox" checked> Follow</label></div><div id="transcript"></div>
 <details><summary>Lesson files & preparation details</summary><p id="lessonInfo" class="note"></p><label>Import Chinese, English, pinyin and aligned word timings<input id="jsonFile" type="file" accept=".json,application/json"></label><button id="export">Export JSON / template ↓</button><button id="clear">Remove saved lesson</button><p id="importStatus" role="status"></p><p class="note">Lessons are saved only in this browser, separately for each video and part. Audio playback stays on Bilibili. Prepare this video uses the local helper and your API account to transcribe, translate, add pinyin and align words. Audio chunks and transcript text are sent to OpenAI for processing. No audio or lessons are publicly uploaded. Your API key stays on this Mac.</p></details></div></section><button id="toggle" aria-expanded="true" hidden>听懂 · Learn</button>`;
-const $=id=>root.getElementById(id);
-let pipelineState=null;let lesson=null,video=null,identity=null,current=-1,word=-1,stopAt=null,chosen=null,lastStatus='',loadId=0,bundled=null,normalAnchor=null;
+const $=id=>root.getElementById(id);root.querySelector('.caption').append($('vocab'));
+
+let pipelineState=null;let lesson=null,video=null,identity=null,current=-1,word=-1,stopAt=null,chosen=null,noteTrigger=null,captionMeaning=null,transcriptMeanings=[],meaningPack=null,lastStatus='',loadId=0,bundled=null,normalAnchor=null;
 let appearance={dark:true,focus:false};
 function applyAppearance(saved){
   appearance={dark:saved?.dark!==false,focus:saved?.focus===true};host.toggleAttribute('data-dark',appearance.dark);
@@ -51,38 +56,38 @@ function place(){
   const web=box.matches('.bpx-state-web')?box:box.querySelector('.bpx-state-web');
   const overlay=fs&&fs.tagName!=='VIDEO'?fs:web;
   host.toggleAttribute('data-overlay',Boolean(overlay));
-  if(overlay){root.querySelector('.caption').style.maxHeight='35vh';normalAnchor?.removeAttribute('data-tingdong-fit');if(host.parentElement!==overlay)overlay.append(host);return;}
+  if(overlay){root.querySelector('.caption').style.maxHeight=$('vocab').hidden?'35vh':'48vh';normalAnchor?.removeAttribute('data-tingdong-fit');if(host.parentElement!==overlay)overlay.append(host);return;}
   const anchor=box.closest('#playerWrap,.player-wrap')||box;
   if(normalAnchor&&normalAnchor!==anchor)normalAnchor.removeAttribute('data-tingdong-fit');normalAnchor=anchor;
   if(host.previousElementSibling!==anchor)anchor.after(host);fitVideo();
 }
 const fitStyle=document.createElement('style');fitStyle.textContent='[data-tingdong-fit]{max-height:var(--tingdong-player-height)!important}[data-tingdong-fit] #bilibili-player,[data-tingdong-fit] .bpx-player-container{height:100%!important;max-height:var(--tingdong-player-height)!important}';document.documentElement.append(fitStyle);
 function fitVideo(){
-  const anchor=normalAnchor;if(!anchor||host.hasAttribute('data-overlay'))return;
+  const anchor=normalAnchor;if(host.hasAttribute('data-overlay')){root.querySelector('.caption').style.maxHeight=$('vocab').hidden?'35vh':'48vh';return;}if(!anchor)return;
   if(host.hidden||$('panel').hidden){anchor.removeAttribute('data-tingdong-fit');return;}
   const top=Math.max(0,anchor.getBoundingClientRect().top+window.scrollY);
   const captionBox=root.querySelector('.caption'),controlsHeight=root.querySelector('header').offsetHeight;
-  captionBox.style.maxHeight=Math.max(100,window.innerHeight-top-240-controlsHeight-16)+'px';
+  const minimumPlayer=$('vocab').hidden?240:180;
+  captionBox.style.maxHeight=Math.max(120,window.innerHeight-top-minimumPlayer-controlsHeight-16)+'px';
   const reserved=captionBox.offsetHeight+controlsHeight+16;
-  const height=Math.max(240,window.innerHeight-top-reserved);
+  const height=Math.max(minimumPlayer,window.innerHeight-top-reserved);
   anchor.style.setProperty('--tingdong-player-height',height+'px');anchor.setAttribute('data-tingdong-fit','');
 }
 new ResizeObserver(fitVideo).observe(root.querySelector('.caption'));
 window.addEventListener('resize',fitVideo);
-function caption(){
+function caption(){if($('vocab').parentElement===root.querySelector('.caption'))closeNote(false);captionMeaning=null;
   const s=lesson?.sentences[current];$('replay').disabled=!s||!video;
   if(!s){$('count').textContent=lesson?.sentences.length?'BETWEEN SENTENCES':'NO LESSON YET';$('zh').textContent=lesson?.sentences.length?'…':'选择课程';$('en').textContent=lesson?.sentences.length?'Listening…':'Open Transcript to prepare or import a lesson for this video.';$('py').textContent='';return;}
   $('count').textContent=`SENTENCE ${current+1} / ${lesson.sentences.length}`;
-  const f=document.createDocumentFragment();displayPieces(s).forEach(({word:w,index:i,before,after})=>{f.append(before);const b=document.createElement('button');b.className='word';b.dataset.cw=i;appendRuby(b,w,lesson);b.onclick=()=>show(w);f.append(b,after);});
-  $('zh').replaceChildren(f);$('en').textContent=s.en;$('py').textContent=s.pinyin;
+  captionMeaning=renderLinkedSentence($('zh'),$('en'),s,lesson,showSelection);$('zh').querySelectorAll('.word').forEach((b,i)=>b.dataset.cw=i);$('py').textContent=s.pinyin;
 }
 function render(){
-  const box=$('transcript');box.replaceChildren();$('clear').disabled=!lesson;
+  const box=$('transcript');if(box.contains($('vocab'))){closeNote(false);root.querySelector('.caption').append($('vocab'));}box.replaceChildren();transcriptMeanings=[];$('clear').disabled=!lesson;
   if(!lesson?.sentences.length){const p=document.createElement('p');p.className='empty';p.textContent='No lesson for this video yet. Playback and speed controls still work. Import a matching lesson below.';box.append(p);return;}
   lesson.sentences.forEach((s,i)=>{
     const a=document.createElement('article');a.id=`s-${i}`;const stamp=document.createElement('button');stamp.textContent=`↻ ${formatTime(s.start)}`;stamp.setAttribute('aria-label',`Replay sentence ${i+1}`);stamp.onclick=()=>replay(i);a.append(stamp);
-    const zh=document.createElement('p');zh.className='zh';zh.lang='zh';displayPieces(s).forEach(({word:w,index:j,before,after})=>{zh.append(before);const b=document.createElement('button');b.className='word';b.dataset.w=j;appendRuby(b,w,lesson);b.onclick=()=>show(w);zh.append(b,after);});
-    const en=document.createElement('p');en.textContent=s.en;a.append(zh,en);box.append(a);
+    const zh=document.createElement('p'),en=document.createElement('p');zh.className='zh';zh.lang='zh';en.lang='en';a.append(zh,en);
+    transcriptMeanings[i]=renderLinkedSentence(zh,en,s,lesson,showSelection);zh.querySelectorAll('.word').forEach((b,j)=>b.dataset.w=j);box.append(a);
   });
 }
 async function loadLesson(id){
@@ -95,7 +100,16 @@ async function loadLesson(id){
     let next=saved;
     if(!next&&id.bvid===BVID&&id.page===1){if(!bundled)bundled=fetch(chrome.runtime.getURL('data/lesson.json')).then(r=>{if(!r.ok)throw Error(`HTTP ${r.status}`);return r.json();});next=await bundled;}
     if(request!==loadId)return;
-    if(next)lesson=validateLesson(next,id.bvid,id.page);
+    if(next){
+      const candidate=validateLesson(next,id.bvid,id.page);
+      if(candidate.sentences.some(s=>!s.meaningLinks)){
+        try{if(!meaningPack)meaningPack=fetch(chrome.runtime.getURL('data/meaning-links.json')).then(r=>r.json());
+          const upgraded=await applyMeaningPack(candidate,await meaningPack);if(request!==loadId)return;
+          if(upgraded)await chrome.storage.local.set({[`lesson:${id.key}`]:candidate});
+        }catch(e){/* A missing optional upgrade never blocks the existing lesson. */}
+      }
+      if(request!==loadId)return;lesson=candidate;
+    }
     render();caption();connect();await syncPipeline();
   }catch(e){if(request===loadId)status(`Lesson could not load: ${e.message}`);}
 }
@@ -117,8 +131,17 @@ async function play(){if(!video)return;try{await video.play();}catch(e){if(e.nam
 function seek(t){if(video)video.currentTime=Math.max(0,Math.min(Number.isFinite(video.duration)?video.duration:lesson?.source.duration||Infinity,t));}
 $('play').onclick=()=>{if(!video)return;stopAt=null;video.paused?play():video.pause();};$('back').onclick=()=>{if(video){stopAt=null;seek(video.currentTime-10);}};$('forward').onclick=()=>{if(video){stopAt=null;seek(video.currentTime+10);}};$('seek').oninput=()=>{stopAt=null;seek(Number($('seek').value));};$('speed').onchange=()=>{if(video)video.playbackRate=Number($('speed').value);};
 function replay(i){const s=lesson?.sentences[i];if(!s||!video)return;stopAt=s.end;seek(s.start);play();}$('replay').onclick=()=>replay(current);
-function show(w){chosen=w;$('vz').textContent=w.zh;$('vp').textContent=w.pinyin;$('ve').textContent=w.en;$('vn').textContent=w.note||'';renderCharacterBreakdown($('characters'),w,lesson);$('vocab').hidden=false;$('closeWord').focus({preventScroll:true});}
-$('closeWord').onclick=()=>{$('vocab').hidden=true;};root.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('vocab').hidden){$('vocab').hidden=true;e.stopPropagation();}});$('wordReplay').onclick=()=>{if(video&&chosen){stopAt=chosen.end;seek(chosen.start);play();}};
+function closeNote(restore=true){if(noteTrigger)noteTrigger.setAttribute('aria-expanded','false');$('vocab').hidden=true;clearMeaningSelection(root);if(restore&&noteTrigger?.isConnected)noteTrigger.focus({preventScroll:true});requestAnimationFrame(fitVideo);}
+function showSelection({words,links,sentence,anchor,trigger,markSelected}){
+  video?.pause();closeNote(false);noteTrigger=trigger;trigger.setAttribute('aria-expanded','true');trigger.setAttribute('aria-controls','vocab');chosen=words.length?{start:Math.min(...words.map(w=>w.start)),end:Math.max(...words.map(w=>w.end))}:null;
+  const enIds=[...new Set(links.flatMap(l=>l.en))].sort((a,b)=>a-b),phrase=meaningPhrase(sentence,{en:enIds});
+  $('vz').textContent=words.map(w=>w.zh).join(' · ')||'English wording';$('vp').textContent=words.map(w=>w.pinyin).join(' · ');$('ve').textContent=words.map(w=>w.en).join(' · ');
+  $('meaningMatch').textContent=phrase?`In this translation: “${phrase}”`:links.some(l=>l.review)?'No English phrase could be linked confidently.':links.length?'No separate English word; see the grammar note below.':'Meaning links have not been added to this lesson yet.';
+  $('vn').textContent=[...new Set([...links.map(l=>l.note),...words.map(w=>w.note)].filter(Boolean))].join(' ');renderSelectionBreakdowns($('characters'),words,lesson);$('wordReplay').disabled=!chosen||!video;
+  anchor.append($('vocab'));$('vocab').hidden=false;markSelected();requestAnimationFrame(fitVideo);
+}
+$('closeWord').onclick=()=>closeNote();root.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('vocab').hidden){closeNote();e.stopPropagation();}});
+$('wordReplay').onclick=()=>{if(video&&chosen){stopAt=chosen.end;seek(chosen.start);play();}};
 $('fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await playerBox()?.requestFullscreen();}catch(e){status('Use Bilibili’s fullscreen button.');}};
 document.addEventListener('fullscreenchange',()=>{place();$('fullscreen').textContent=document.fullscreenElement?'Exit fullscreen':'Fullscreen';});
 $('search').oninput=()=>{const q=$('search').value.toLocaleLowerCase();lesson?.sentences.forEach((s,i)=>{$(`s-${i}`).hidden=![s.zh,s.en,s.pinyin].some(t=>t.toLocaleLowerCase().includes(q));});};
@@ -137,8 +160,8 @@ $('export').onclick=()=>{
   const u=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=u;a.download=`${identity.bvid}-part-${identity.page}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);
 };
 function pipelineView(){
-  const busy=['running','cancelling'].includes(pipelineState?.state),ready=pipelineState?.state==='complete';
-  $('prepare').disabled=busy||ready;$('prepare').textContent=busy?'Preparing…':ready?'Lesson ready':pipelineState?.state==='failed'||pipelineState?.state==='cancelled'?'Resume preparation':'Prepare this video';
+  const busy=['running','cancelling'].includes(pipelineState?.state),needsMeanings=lesson?.sentences.some(s=>!s.meaningLinks),ready=pipelineState?.state==='complete'&&!needsMeanings;
+  $('prepare').disabled=busy||ready;$('prepare').textContent=busy?'Preparing…':ready?'Lesson ready':needsMeanings?'Link meanings':pipelineState?.state==='failed'||pipelineState?.state==='cancelled'?'Resume preparation':'Prepare this video';
   $('pipeline').hidden=!pipelineState||ready;$('pipelineText').textContent=pipelineState?.message||'';$('pipelineProgress').value=pipelineState?.percent||0;$('cancelPrepare').hidden=!busy;$('cancelPrepare').disabled=pipelineState?.state==='cancelling';$('pipelineHelp').hidden=!pipelineState?.message?.includes('not installed');
 }
 async function syncPipeline(){
@@ -148,7 +171,7 @@ async function syncPipeline(){
 $('prepare').title='Uses your local helper and API account. Audio transcription and translation incur API usage charges.';
 $('prepare').onclick=async()=>{
   const id=identity;if(!id)return;pipelineState={state:'running',message:'Starting preparation…',percent:0};pipelineView();
-  try{const result=await chrome.runtime.sendMessage({type:'pipeline-start',key:id.key});if(!result?.ok)throw Error(result?.error||'The preparation helper did not respond. Reload extension 0.3 and try again.');}
+  try{const result=await chrome.runtime.sendMessage({type:'pipeline-start',key:id.key});if(!result?.ok)throw Error(result?.error||'The preparation helper did not respond. Reload the extension and try again.');}
   catch(e){if(identity?.key===id.key){pipelineState={state:'failed',message:e.message,percent:0};pipelineView();}}
 };
 $('cancelPrepare').onclick=async()=>{if(identity)await chrome.runtime.sendMessage({type:'pipeline-cancel',key:identity.key});};
@@ -166,9 +189,9 @@ function tick(){
     let t=video.currentTime;if(stopAt!==null&&t>=stopAt){video.pause();seek(stopAt-.001);stopAt=null;t=video.currentTime;}
     $('time').textContent=formatTime(t);$('seek').value=t;$('play').textContent=video.paused?'▶':'Ⅱ';$('speed').value=String(video.playbackRate);
     const i=activeIndex(lesson?.sentences||[],t);
-    if(i!==current){root.querySelector('article.active')?.classList.remove('active');current=i;word=-1;caption();const row=$(`s-${i}`);row?.classList.add('active');if(row&&!row.hidden&&$('follow').checked)$('transcript').scrollTop=row.offsetTop-$('transcript').offsetTop;}
+    if(i!==current){root.querySelectorAll('.word.current,.meaning-current').forEach(e=>e.classList.remove('current','meaning-current'));root.querySelector('article.active')?.classList.remove('active');current=i;word=-1;caption();const row=$(`s-${i}`);row?.classList.add('active');if(row&&!row.hidden&&$('follow').checked)$('transcript').scrollTop=row.offsetTop-$('transcript').offsetTop;}
     const wi=i<0?-1:activeIndex(lesson.sentences[i].words,t);
-    if(wi!==word){root.querySelectorAll('.word.current').forEach(e=>e.classList.remove('current'));word=wi;if(wi>=0){root.querySelectorAll(`[data-cw="${wi}"]`).forEach(e=>e.classList.add('current'));$(`s-${i}`)?.querySelector(`[data-w="${wi}"]`)?.classList.add('current');}}
+    if(wi!==word){root.querySelectorAll('.word.current').forEach(e=>e.classList.remove('current'));root.querySelectorAll('.meaning-current').forEach(e=>e.classList.remove('meaning-current'));captionMeaning?.setCurrent(wi);transcriptMeanings[i]?.setCurrent(wi);word=wi;if(wi>=0){root.querySelectorAll(`[data-cw="${wi}"]`).forEach(e=>e.classList.add('current'));$(`s-${i}`)?.querySelector(`[data-w="${wi}"]`)?.classList.add('current');}}
   }
   requestAnimationFrame(tick);
 }
